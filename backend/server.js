@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { ethers } = require("ethers");
 
 dotenv.config();
@@ -90,7 +91,8 @@ app.get("/api/health", async (_req, res) => {
 
 app.post("/api/ramp/session", (req, res) => {
   const { amount, currency, asset } = req.body || {};
-  const sessionId = `ulmt_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+  const randomSuffix = crypto.randomBytes(16).toString("hex");
+  const sessionId = `ulmt_${Date.now()}_${randomSuffix}`;
 
   res.json({
     sessionId,
