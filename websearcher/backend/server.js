@@ -364,7 +364,7 @@ const searchWikipedia = async (query) => {
     items.map((item) => ({
       title: item.title,
       url: `https://en.wikipedia.org/wiki/${encodeURIComponent(item.title)}`,
-      snippet: item.snippet?.replace(/<[^>]+>/g, '') || '',
+      snippet: item.snippet?.replace(/[<>]/g, '') || '',
     })),
     'wikipedia'
   )
