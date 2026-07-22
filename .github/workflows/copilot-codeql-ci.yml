@@ -50,7 +50,6 @@ jobs:
 
   node-ci:
     name: Node CI
-    if: ${{ hashFiles('package.json') != '' }}
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -83,7 +82,6 @@ jobs:
 
   python-ci:
     name: Python CI
-    if: ${{ hashFiles('**/*.py') != '' }}
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
