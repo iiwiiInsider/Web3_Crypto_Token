@@ -54,13 +54,6 @@ const rampSchema = z.object({
   asset: z.string().max(50).optional()
 });
 
-const PORT = Number(process.env.PORT || 5174);
-const RPC_URL = process.env.RPC_URL || "http://127.0.0.1:8545";
-const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY || "";
-const UNLIMINT_BASE_URL = process.env.UNLIMINT_BASE_URL || "https://sandbox.unlimint.com";
-const UNLIMINT_MERCHANT_ID = process.env.UNLIMINT_MERCHANT_ID || "";
-const UNLIMINT_API_KEY = process.env.UNLIMINT_API_KEY || "";
-
 const erc20Abi = [
   "function approve(address spender, uint256 amount) returns (bool)",
   "function decimals() view returns (uint8)",
